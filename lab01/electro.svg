@@ -43,8 +43,18 @@
   <text x="438" y="12" font-size="12" text-anchor="start" fill="red">448</text>
   <text x="492" y="12" font-size="12" text-anchor="start" fill="red">512</text>
 
-  <path d="M256 256 V270 V242 M256 256 H270 H242" stroke="black" fill="white"></path>
+  <path d="M256 256 V270 V242 M256 256 H270 H242" stroke="black"  fill="white"></path>
   <text x="254" y="250" font-size="16" text-anchor="middle" fill="red">(256, 256)</text>
-</svg>
 
+  <path d = "M192 10 A40 60 0, 0, 0 170 60 A40 10 0, 0, 0 230 60 A50 200 0, 0, 1 194 124" stroke="black" stroke-width="10" fill="none"></path> //呆毛
+
+  <path d = "M5 128 390 128 390 384 5 384z" stroke="black" stroke-width="10" fill="none"></path> //臉
+
+  <path d = "M5 235  115 235 M390 235 275 235" stroke="black" stroke-width="10" fill="none"></path> //眼
+
+  <path d = "M170 327 A45 180 0, 0, 0 215 327" stroke="black" stroke-width="10" fill="none"></path> //嘴
+
+  <path d="M275 425 C300 400, 340 400, 360, 415 C374 420, 394 468, 443, 390" stroke="black" stroke-width="10" fill="none"/>
+
+</svg>
     
