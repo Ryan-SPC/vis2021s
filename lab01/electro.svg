@@ -54,7 +54,26 @@
 
   <path d = "M170 327 A45 180 0, 0, 0 215 327" stroke="black" stroke-width="10" fill="none"></path> //嘴
 
-  <path d="M275 425 C300 400, 340 400, 360, 415 C374 420, 394 468, 443, 390" stroke="black" stroke-width="10" fill="none"/>
+  <path d="M275 425 C300 400, 340 400, 360, 415 C374 420, 394 468, 443, 390" stroke="black" stroke-width="10" fill="none"></path> //尾巴
+
+  //插頭
+  <path d="M440 360 A10 15 25,0,0 470 370z" stroke="black" stroke-width="10" fill="none"></path>
+  <path d="M450 360 458 342" stroke="black" stroke-width="10" fill="none"></path>
+  <path d="M460 370 472 347" stroke="black" stroke-width="10" fill="none"></path>
+
+  //閃電
+  <path d="M430 310 428 328 442 325 438 342" stroke="black" stroke-width="10" fill="none"></path>
+  <path d="M512 330 494 338 505 348 486 355" stroke="black" stroke-width="10" fill="none"></path>
+
+  <path d="M145 384 C120 420, 130 420, 100, 440 Q85 448 82 485 C140 480, 120 450, 135 411" stroke="black" stroke-width="10" fill="none"></path> //右手
+
+  <path d="M239 384 C264 420, 254 420, 284, 440 Q299 448 302 485 C244 480, 264 450, 249 411" stroke="black" stroke-width="10" fill="none"></path> //左手
+
+  <path d="M150 500 A18 27 -15, 1,1 156 500z" stroke="black" stroke-width="10" fill="none"></path> //右腳
+  <path d="M245 500 A18 28 15, 1,0 230 500z" stroke="black" stroke-width="10" fill="none"></path> //左腳
+  <path d="M170 490 225 490" stroke="black" stroke-width="10" fill="none"></path> 
+
+
 
 </svg>
     
