@@ -53,7 +53,7 @@
     <animate attributeName="r" to="10" dur="2s" repeatCount="indefinite"/>
   </circle>
 
-  <circle id="c2" cx="56" cy="256" r="1" stroke="red" fill="none">
+  <circle id="c2" cx="64" cy="256" r="1" stroke="red" fill="none">
     <animate attributeName="r" to="10" dur="2s" repeatCount="indefinite"/>
   </circle>
 
