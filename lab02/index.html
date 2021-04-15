@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<script src="https://d3js.org/d3.v4.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js"></script>
 		
 		<style>
       		@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
@@ -82,110 +82,95 @@
 			CSV 資料扔過來! Drop your CSV here.
 		</div>
 		
-		<div id="treemap"></div>
+		<div class="demo">
+			<li>台中月平均降雨量</li>
+		</div>
 		
 		
 		<script>
-			//產生SVG
-			function mkSVG(container, bosses, data){
-				const treemap = document.createElement('div')
-				
-				const margin = {top: 10, right: 10, bottom: 10, left: 10};
-				const height = container.clientHeight - margin.top - margin.bottom;
-				const width = container.clientWidth - margin.left - margin.right;
-				
-				const svg = d3.select(treemap)
-							  .append('svg')
-							  .attr('width', width + margin.left + margin.right)
-							  .attr('height', height + margin.top + margin.bottom)
-							  .append('g')
-							
-				//利用d3.hierarchy產生x y的資料
-				const d3ds = d3.hierarchy(data).sum(({value}) => value)
-				
-				
-				//設定svg位置
-				d3.treemap()
-				  .size([width, height])
-				  .paddingTop(45)
-				  .paddingRight(15)
-				  .paddingInner(10) 
-				  (d3ds)
-				  
-				  
-				//設定指導教授顏色
-				const color = d3.scaleOrdinal()
-								.domain(bosses)
-								.range([ "#402D54", "#D18975", "#8FD175", "#ff66ff", "#ffb366", "#80ff80", "#d279a6", "#ff6633", "#6600ff", "#00bfff", "#53c653", "#ff8000"])
-								
-				//設定透明度，分數越低越透明
-				const opacity = d3.scaleLinear()
-								.domain([100, 50])
-								.range([1,.1])
-								
-				//化長方形
-				svg
-					.selectAll('rectangle')
-					.data(d3ds.leaves())
-					.enter()
-					.append('rect')
-					 .attr('x', ({x0}) => x0)
-					 .attr('y', ({y0}) => y0)
-					 .attr('width', ({x0,x1}) => x1-x0)
-					 .attr('height', ({y0,y1}) => y1-y0)
-					 .style('stroke', 'red')
-					 .style('fill', ({parent}) => color(parent.data.name))
-					 .style('opacity', (d) => opacity(d.data.value))
-					 
-				
-				//寫學生姓名
-				svg
-					.selectAll('studentNames')
-					.data(d3ds.leaves())
-					.enter()
-					.append('text')
-					 .attr('x', ({x0}) => x0 + 1)
-					 .attr('y', ({y0}) => y0 + 20)
-					 .text(({data}) => data.name)
-					 .attr('font-size', '1rem')
-					 .attr('fill', 'white')
-				
-				//寫學生分數
-				svg
-					.selectAll('studentScore')
-					.data(d3ds.leaves())
-					.enter()
-					.append('text')
-					 .attr('x', ({x0}) => x0 + 1)
-					 .attr('y', ({y0}) => y0 + 35)
-					 .text(({data}) => data.value < 60 ? '' : data.value)
-					 .attr('font-size', '.9rem')
-					 .attr('fill', 'white')
-					 
-				svg
-					.selectAll('studentSecond')
-					.data(d3ds.leaves())
-					.enter()
-					.append('text')
-					 .attr('x', ({x0}) => x0 + 1)
-					 .attr('y', ({y0}) => y0 + 50)
-					 .text(({data}) => parseFloat(data.seconds) > 30 ? '不及格' : '(' + data.seconds + '秒)')
-					 .attr('font-size', '.9rem')
-					 .attr('fill', 'white')
-					 
-				svg
-					.selectAll('labertory')
-					.data(d3ds.descendants().filter(function(d){return d.depth==1}))
-					.enter()
-					.append('text')
-					 .attr('x', ({x0}) => x0 + 1)
-					 .attr('y', ({y0}) => y0 + 21)
-					 .text(({data}) => data.name)
-					 .attr('font-size', '1.1rem')
-					 .attr('fill', 'black')
-					 
-				return treemap
-			}	
+			dataPath = './';
+dataFile = 'd3demoData141011.csv';
+dataUrl = dataPath + dataFile;
+//定義SVG的大小
+d3.csv(dataUrl, function(data){
+	console.debug(JSON.stringify(data));
+	dataset = data;
+
+	var w = 600,h = 250,padding = 30, barMargin = 2;
+	//定義寬高,padding等等值
+
+	// var Ymax = d3.max(dataset, function(d){return d.value}),
+	// 	Ymin = d3.min(dataset, function(d){return d.value});
+	var Ymax = 350,
+		Ymin = 0;
+		//取得Y軸的最大值
+
+	var xScale = d3.scale.linear() //產生一個屬於X軸的線性尺度
+		.domain([0, dataset.length]) //傳入的值是原始資料的最小及最大值
+		.range([padding , w - padding]) 
+		//輸出的範圍是左邊的padd距離，到右邊的padding
+
+	var yScale = d3.scale.linear()
+		.domain([Ymin, Ymax])
+		.range([padding, h - padding])
+		//類似X軸的尺度
+	var yScale = d3.scale.linear()
+		.domain([Ymin, Ymax])
+		.range([padding, h - padding])
+		//類似X軸的尺度
+
+	var colorScale = d3.scale.linear()
+		.domain([Ymin, Ymax])
+		.range([0, 700])
+		//這次顏色都要用尺度來算
+
+	var barWidth = (w - padding*2) / dataset.length - barMargin;
+
+	var svg = d3.select('.demo').append('svg').attr({'width': w,'height': h})
+		//接下來開始產生SVG
+		
+	svg.selectAll('rect').data(dataset).enter() //和先前一樣，選取'circle'並把資料加入
+	.append('rect') // 增加圓到SVG內
+	.attr({	//加入屬性到圓
+		'x': function(d, i){return xScale(i)}, //利用尺度算出X的位置
+		'y': function(d){return h - yScale(d.value)}, //同理算出Y
+		'width': barWidth,
+		'height':function(d){return yScale(d.value)}, //同理算出Y
+		// 'r': function(d){return Math.sqrt(h - d[1])}, //圓的大小是高 - Y值的平方
+		'fill': function(d){
+			var color = 0.2 + colorScale(d.value) * 0.001;
+			return  d3.hsl(200 ,color, color); //利用尺度來算出顏色
+		},
+		'title': function(d){
+			return 'Name : ' + d.name;
+		}
+		//介紹一個顏色的function hsl，可以將顏色算出後轉成色碼
+		//格式 (360色相, 1彩度, 1明度)
+	});
+
+	svg.selectAll('text').data(dataset).enter() //補上資料數值
+	.append('text') 
+	.text(function(d){ return d.value}) //將值寫到SVG上
+	.attr({
+		'x': function(d, i){return xScale(i) + barWidth/2}, //和上面相同，算出X、Y的位置
+		'y': function(d){return h - yScale(d.value) + 15},
+		'fill': 'white', //文字填滿為紅色
+		'text-anchor': 'middle',
+		'font-size': '10px' //Fill、font-size也可以用CSS寫喔～
+	});
+
+	svg.append('g').selectAll('text').data(dataset).enter() //這邊再多做一個人名顯示的區域
+	.append('text') 
+	.text(function(d){ return d.name}) //寫入人名
+	.attr({
+		'x': function(d, i){return xScale(i) + barWidth/2}, //和上面相同，算出X、Y的位置
+		'y': function(d){return h - yScale(d.value) - 10},
+		'fill': 'SlateGray', //文字填滿為超漂亮灰色
+		'text-anchor': 'middle',
+		'font-size': '10px' //Fill、font-size也可以用CSS寫喔～
+	});
+
+});
 		</script>
 		
 		<script>
@@ -282,6 +267,7 @@
 				
 			
 			})
+			
 		</script>
 	
 	</body>
