@@ -1,96 +1,191 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+
 <head>
-    <meta charset="utf-8">
-    <title>Lab 7</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+  <meta charset="utf-8">
+  <title>Lab 7</title>
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+  <script src="s.js"></script>
 
-        h1, div {
-          background-color: rgba(255, 255, 0, 0.1);
-          font-family: 'Noto Serif JP', serif;
-          font-size: 24pt;
-          border: solid 1px black;
-          width: 90%;
-          margin: 5px auto;
-          padding: 10px;
-        }
 
-        div {
-          font-size: 12pt;
-        }
-        
-        body {
-            background-color: rgba(255, 128, 255, 0.1);
-        }
-
-        video:hover {
-            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-        }
-
-    </style>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
 </head>
+
 <body>
-    <h1>
-        lab07 漢字變形 Path Transitions
-    </h1>
-    <div>
-      限定使用 D3.js，參考以下影片。
-    	<ul>
-    		<li><a href="https://bocoup.com/blog/improving-d3-path-animation">Improving D3 Path Animation</a></li>
-    		<li><a href="https://bost.ocks.org/mike/path/">https://bost.ocks.org/mike/path/</a></li>
-    	</ul>
-    </div>
+  <h1>
+    lab07 漢字變形 Path Transitions
+  </h1>
+  <div>
+    限定使用 D3.js，參考以下影片。
+    <ul>
+      <li><a href="https://bocoup.com/blog/improving-d3-path-animation">Improving D3 Path Animation</a></li>
+      <li><a href="https://bost.ocks.org/mike/path/">https://bost.ocks.org/mike/path/</a></li>
+    </ul>
+  </div>
 
-    <div>
-  		<video width="400" controls loop autoplay>
-  		  <source src="2.mp4" type="video/mp4">
-  		</video>
-    </div>
-
-    <div>
-      展示區 (姓名)
-      <hr>
-      <img width="256" src="./name1.svg">
+  <div>
+    <video width="400" controls loop autoplay>
+      <source src="2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div id="svg-word"></div>
+  <div id="exhibition-area1">
+    展示區 (姓名)
+    <hr>
+    <img width="256" src="./name1.svg">
       <img width="256" src="./name2.svg">
       <img width="256" src="./name3.svg">
-    </div>
+    <hr>
+    <object data="uni738B_FZSJSK--GBK1-0.svg" id="shen" width="256" type="image/svg+xml"></object>
+    <object data="uni52E4_FZSJSK--GBK1-0.svg" id="po" width="256" type="image/svg+xml"></object>
+    <object data="uni5BEC_FZSJSK--GBK1-0.svg" id="chun" width="256" type="image/svg+xml"></object>
+    <hr>
 
-    <div>
-      Drag and Drop 展示區 (接收任何SVG)
-    </div>
+
+  </div>
 
 
-    <svg width="500" height="120">
-	<path id="path1" fill="transparent"/>
-    
-      <!-- <path id="path1" d="M30 50 A50 50,0 1 1 130 50 A50 50,0 1 1 30 50" fill="transparent"/> -->
-    </svg>
-    <script type="text/javascript">
-      // Your beautiful D3 code will go here
-	  
-	  // 在 body 中插入一個 svg
 
-      var line = d3.line();
-      var data = [[100, 0],[56.7, 75], [143.3, 75], [100, 0]];
-      var data2 = [[143.3, 25],[56.7, 25], [100, 100], [143.3, 25]];
-      // d3.select('#path1').attr('d', line(data))
-      // .attr('stroke', "black")
-      // .attr('fill', "transparent")
-      // .transition()
-      // .attr('d', line(data2));
-     
-      d3.select('#path1')
-	  .attr('d', line(data))
-      .attr('stroke', "black")
-      .attr('fill', "transparent")
-        .on("click", function(){
-			d3.select(this)
-			.transition()
-			.attr('d', line(data2))
+  <div id="dropfile">
+    Drag and Drop 展示區 (接收任何SVG)
+  </div>
+
+  <div id="exhibition-area2">
+
+  </div>
+  <script type="text/javascript">
+
+
+  </script>
+
+
+  <script type="text/javascript">
+    // Your beautiful D3 code will go here
+
+    d3.select("#exhibition-area1").selectAll("svg").remove()
+
+    var svg1 = d3.select("#exhibition-area1")
+      .append("svg")
+      .attr("width", 300)
+      .attr("height", 350)
+
+    var svg2 = d3.select("#exhibition-area1")
+      .append("svg")
+      .attr("width", 300)
+      .attr("height", 350)
+
+    var svg3 = d3.select("#exhibition-area1")
+      .append("svg")
+      .attr("width", 300)
+      .attr("height", 350)
+
+
+
+    nameTransition(svg1, shen)
+    nameTransition(svg2, po)
+    nameTransition(svg3, chun)
+
+    function nameTransition(svg, namePath) {
+      svg.append("path")
+        .attr("d", fixedCirclePath)
+        .transition()
+        .duration(3500)
+        .delay(300)
+        .on("start", function loop() {
+          d3.active(this)
+            .attrTween("d", pathTween(namePath, 3))
+            .transition()
+            .duration(5000)
+            .delay(200)
+            .attrTween("d", pathTween(fixedCirclePath, 3))
+            .transition()
+            .on("start", loop);
+        })
+    }
+
+
+    function pathTween(d1, precision) {
+      return function () {
+        var path0 = this,
+          path1 = path0.cloneNode(),
+          n0 = path0.getTotalLength(),
+          n1 = (path1.setAttribute("d", d1), path1).getTotalLength();
+
+        // Uniform sampling of distance based on specified precision.
+        var distances = [0],
+          i = 0,
+          dt = precision / Math.max(n0, n1);
+        while ((i += dt) < 1) distances.push(i);
+        distances.push(1);
+
+        // Compute point-interpolators at each distance.
+        var points = distances.map(function (t) {
+          var p0 = path0.getPointAtLength(t * n0),
+            p1 = path1.getPointAtLength(t * n1);
+          return d3.interpolate([p0.x, p0.y], [p1.x, p1.y]);
         });
 
-    </script>
-  </html>
-  
+        return function (t) {
+          return t < 1 ? "M" + points.map(function (p) {
+            return p(t);
+          }).join("L") : d1;
+        };
+      };
+    }
+
+    var svgPath = "";
+    var wordNum = 0;
+    var pathList = [];
+    document.getElementById('dropfile').addEventListener('dragover', (evt) => {
+      evt.preventDefault()
+    })
+
+    document.getElementById('dropfile').addEventListener('drop', (evt) => {
+      evt.preventDefault()
+
+      const {
+        files
+      } = evt.dataTransfer
+
+
+      const svgFile = evt.dataTransfer.files
+      const svgFileName = files[0].name
+      console.log(svgFile[0])
+
+      var fileReader = new FileReader()
+      fileReader.readAsText(svgFile[0]);
+      wordNum += 1;
+
+      if (wordNum <= 3) {
+        fileReader.onload = function (e) {
+
+          d3.select("#svg-word")
+            .append("div")
+            .attr("id", "svg-path" + wordNum)
+            .html(fileReader.result)
+
+          callBack()
+        }
+      }
+
+      function callBack() {
+        var svg = d3.select("#exhibition-area2")
+          .append("svg")
+          .attr("width", 300)
+          .attr("height", 400)
+
+        d3.select("#svg-path" + wordNum)
+          .select("svg")
+          .select("path")
+          .attr("class", "svg-path")
+          .attr("id", "path" + wordNum)
+
+        svgPath = d3.select("#path" + wordNum).attr("d");
+
+        nameCircleTransition(svg, svgPath)
+      }
+
+    })
+  </script>
+
+</html>
