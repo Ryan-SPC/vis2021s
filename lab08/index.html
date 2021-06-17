@@ -1,71 +1,641 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Lab 8</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap");
 
-        h1, div {
-          background-color: rgba(255, 255, 0, 0.1);
-          font-family: 'Noto Serif JP', serif;
-          font-size: 24pt;
-          border: solid 1px black;
-          width: 90%;
-          margin: 5px auto;
-          padding: 10px;
-        }
+      h1,
+      div {
+        background-color: rgba(255, 255, 0, 0.1);
+        font-family: "Noto Serif JP", serif;
+        font-size: 24pt;
+        border: solid 1px black;
+        width: 90%;
+        margin: 5px auto;
+        padding: 10px;
+      }
 
-        div {
-          font-size: 12pt;
-        }
-        
-        body {
-            background-color: rgba(255, 128, 255, 0.1);
-        }
+      div {
+        font-size: 12pt;
+      }
 
-        video:hover {
-            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+      body {
+        background-color: rgba(255, 128, 255, 0.1);
+      }
+
+      video:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+      }
+
+      #path915 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 200;
+        animation: dash915 3s linear forwards;
+      }
+      @keyframes dash915{
+        0% {
+          stroke-dashoffset: 200;
         }
+        14% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path917 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 200;
+        animation: dash917 3s linear forwards;
+      }
+      @keyframes dash917{
+		0%,
+        14% {
+          stroke-dashoffset: 200;
+        }
+        28% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path919 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 200;
+        animation: dash919 3s linear forwards;
+      }
+      @keyframes dash919{
+		0%,
+        28% {
+          stroke-dashoffset: 200;
+        }
+        42% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path921 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 200;
+        animation: dash921 3s linear forwards;
+      }
+      @keyframes dash921{
+		0%,
+        42% {
+          stroke-dashoffset: 200;
+        }
+        56% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path923 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 200;
+        animation: dash923 3s linear forwards;
+      }
+      @keyframes dash923{
+		0%,
+        56% {
+          stroke-dashoffset: 200;
+        }
+        70% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path925 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 200;
+        animation: dash925 3s linear forwards;
+      }
+      @keyframes dash925{
+		0%,
+        70% {
+          stroke-dashoffset: 200;
+        }
+        84% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path927 {
+        stroke-width: 12;
+        clip-path: url("#cp1");
+        stroke-dasharray: 300;
+        animation: dash927 3s linear forwards;
+      }
+      @keyframes dash927{
+		0%,
+        84% {
+          stroke-dashoffset: 300;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	   #path894 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash894 3s linear forwards;
+      }
+      @keyframes dash894{
+        0% {
+          stroke-dashoffset: 300;
+        }
+        11% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path896 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash896 3s linear forwards;
+      }
+      @keyframes dash896{
+	  0%,
+        11% {
+          stroke-dashoffset: 300;
+        }
+        22% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path898 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash898 3s linear forwards;
+      }
+      @keyframes dash898{
+	  0%,
+        22% {
+          stroke-dashoffset: 300;
+        }
+        33% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path900 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash900 3s linear forwards;
+      }
+      @keyframes dash900{
+	  0%,
+        33% {
+          stroke-dashoffset: 300;
+        }
+        44% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path902 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash902 3s linear forwards;
+      }
+      @keyframes dash902{
+	  0%,
+        44% {
+          stroke-dashoffset: 300;
+        }
+        55% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path904 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash904 3s linear forwards;
+      }
+      @keyframes dash904{
+	  0%,
+        55% {
+          stroke-dashoffset: 300;
+        }
+        66% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path906 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash906 3s linear forwards;
+      }
+      @keyframes dash906{
+	  0%,
+        66% {
+          stroke-dashoffset: 300;
+        }
+        77% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path908 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 350;
+        animation: dash908 3s linear forwards;
+      }
+      @keyframes dash908{
+	  0%,
+        77% {
+          stroke-dashoffset: 350;
+        }
+        88% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path910 {
+        stroke-width: 12;
+        clip-path: url("#cp2");
+        stroke-dasharray: 300;
+        animation: dash910 3s linear forwards;
+      }
+      @keyframes dash910{
+	  0%,
+        88% {
+          stroke-dashoffset: 300;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path0 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 200;
+        animation: dash0 3s linear forwards;
+      }
+      @keyframes dash0{
+        0% {
+          stroke-dashoffset: 200;
+        }
+        14% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path1 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 200;
+        animation: dash1 3s linear forwards;
+      }
+      @keyframes dash1{
+		0%,
+        14% {
+          stroke-dashoffset: 200;
+        }
+        28% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path2 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 200;
+        animation: dash2 3s linear forwards;
+      }
+      @keyframes dash2{
+		0%,
+        28% {
+          stroke-dashoffset: 200;
+        }
+        42% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path3 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 200;
+        animation: dash3 3s linear forwards;
+      }
+      @keyframes dash3{
+		0%,
+        42% {
+          stroke-dashoffset: 200;
+        }
+        56% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path4 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 400;
+        animation: dash4 3s linear forwards;
+      }
+      @keyframes dash4{
+		0%,
+        56% {
+          stroke-dashoffset: 400;
+        }
+        70% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path5 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 200;
+        animation: dash5 3s linear forwards;
+      }
+      @keyframes dash5{
+		0%,
+        70% {
+          stroke-dashoffset: 200;
+        }
+        84% {
+          stroke-dashoffset: 0;
+        }
+      }
+	  
+	  #path6 {
+        stroke-width: 12;
+        clip-path: url("#cp3");
+        stroke-dasharray: 400;
+        animation: dash6 3s linear forwards;
+      }
+      @keyframes dash6{
+		0%,
+        84% {
+          stroke-dashoffset: 400;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
     </style>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
-</head>
-<body>
+    <!--
+    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+    -->
+    <script src="js/5523-.-d3.v6.min.js" charset="utf-8"></script>
+  </head>
+  <body>
     <h1>
-        lab08 漢字書寫 (鉛筆字) (毛筆字也OK!) Path Animation
+      lab08 &#28450;&#23383;&#26360;&#23531; (&#37467;&#31558;&#23383;)
+      (&#27611;&#31558;&#23383;) Path Animation
     </h1>
     <div>
-      限定使用 D3.js，參考以下影片。
-    	<ul>
-    		<li><a href="https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4">Animate path in D3</a></li>
-    		<li><a href="https://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation">"Self-Drawing" SVG</a></li>
-    		<li><a href="https://stackoverflow.com/questions/15275362/how-to-transition-a-path-in-d3-js">How to transition a path in d3.js</a></li>
-        <li><a href="https://css-tricks.com/svg-line-animation-works/">How SVG Line Animation Works</a></li>
-        <li><a href="http://blog.roachking.net/blog/2014/10/31/osolve-team-drawing-animation/">使用 SVG 將圖片做成動畫</a></li>
-        <li><a href="https://www.hesyifei.com/">何一非</a></li>
-    	</ul>
+      &#38480;&#23450;&#20351;&#29992;
+      D3.js&#65292;&#21443;&#32771;&#20197;&#19979;&#24433;&#29255;&#12290;
+      <ul>
+        <li>
+          <a
+            href="https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4"
+            >Animate path in D3</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation"
+            >"Self-Drawing" SVG</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://stackoverflow.com/questions/15275362/how-to-transition-a-path-in-d3-js"
+            >How to transition a path in d3.js</a
+          >
+        </li>
+        <li>
+          <a href="https://css-tricks.com/svg-line-animation-works/"
+            >How SVG Line Animation Works</a
+          >
+        </li>
+        <li>
+          <a
+            href="http://blog.roachking.net/blog/2014/10/31/osolve-team-drawing-animation/"
+            >&#20351;&#29992; SVG
+            &#23559;&#22294;&#29255;&#20570;&#25104;&#21205;&#30059;</a
+          >
+        </li>
+        <li>
+          <a href="https://www.hesyifei.com/">&#20309;&#19968;&#38750;</a>
+        </li>
+        <li>
+          <a href="https://bl.ocks.org/veltman/403f95aee728d4a043b142c52c113f82"
+            >Centerline label placement</a
+          >
+        </li>
+        <li>
+          <a href="https://bl.ocks.org/veltman/13a7234c4ea073bd7caaa11abb1f7b5d"
+            >Centerline label placement #2</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://medium.com/@GlennJong/svg-%E7%AD%86%E8%A8%98-%E6%89%8B%E5%AF%AB%E5%AD%97%E5%8B%95%E7%95%AB-3e42ec68bfdd"
+            >SVG
+            &#31558;&#35352;&#65306;&#25163;&#23531;&#23383;&#21205;&#30059;</a
+          >
+        </li>
+        <li>
+          <a href="https://inkscape.org/zh-hant/"
+            >Inkscape <img src="images/images-inkscape-logo.svg" width="64"
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://www.oxxostudio.tw/articles/201406/svg-09-clipping-masking.html"
+            >SVG &#30740;&#31350;&#20043;&#36335; (9) - Clipping and Masking</a
+          >
+        </li>
+        <li>
+          <a href="https://petercollingridge.appspot.com/svg-optimiser"
+            >SVG optimiser</a
+          >
+        </li>
+        <li>
+          <a href="https://petercollingridge.appspot.com/svg-transforms"
+            >svg-transforms</a
+          >
+        </li>
+        <li><a href="https://jakearchibald.github.io/svgomg/">svgomg</a></li>
+      </ul>
     </div>
 
     <div>
-  		<video width="400" controls loop autoplay>
-  		  <source src="3.mp4" type="video/mp4">
-  		</video>
+      &#23637;&#31034;&#21312; (&#22995;&#21517;)
+      <hr />
+      <img width="256" src="./name1.svg" />
+      <img width="256" src="./name2.svg" />
+      <img width="256" src="./name3.svg" />
     </div>
 
     <div>
-      展示區 (姓名)
-      <hr>
-      <img width="256" src="./uni8607_FZSJSK--GBK1-0.svg">
-      <img width="256" src="./uni5B50_FZSJSK--GBK1-0.svg">
-      <img width="256" src="./uni77BB_FZSJSK--GBK1-0.svg">
-    </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        width="532"
+        height="512"
+        viewbox="-10 0 266 256"
+      >
+        <clippath id="cp1">
+          <path fill="currentColor"
+d="M138 9q-1 -2 0 -3q1 0 3 1q11 14 7 17q-3 10 -7 32q45 -23 57 -2q2 8 -1 8q-7 0 -13 5q-27 19 -40 22q-3 1 -3 0t3 -3q27 -17 40 -29q3 -3 2 -5t-5 -3q-20 -4 -42 13q-24 74 -43 121q-3 4 -4 4q-1 -1 1 -5q20 -51 36 -112q-16 11 -23 21q-6 8 -7 15q-1 8 -6 5
+q-12 -8 -5 -22q5 -9 7 -18q0 -2 1 -3q2 0 3 2q1 6 1 14q17 -13 31 -22q4 -20 6 -31q1 -12 1 -22zM38 41q-3 -2 1 -1q12 5 24 5q3 1 4 3q-1 6 -4 5q-14 -3 -25 -12zM74 125q2 -4 3 -4q1 1 1 5q-14 56 -27 86q-3 5 -6 2q-8 -7 -8 -13q0 -2 1 -2t2 2q0 3 2 3t3 -2q9 -22 29 -77
+zM130 126q7 6 5 8q-9 16 -6 39q3 15 20 22q47 9 84 -4q6 -1 2 -8q-8 -15 -12 -27q-1 -2 0 -3t3 1q9 9 14 19q2 4 5 9q2 3 3 3q3 4 3 5q0 2 -4 3q-33 8 -54 9q-20 1 -43 -5q-18 -3 -25 -23q-5 -13 2 -47q-1 -2 0 -2t3 1zM12 99q-3 -2 0 -1q15 2 26 -2q4 -1 4 3q1 7 -2 6
+q-11 1 -28 -6z" />
+        </clippath>
+        <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 36.802454,39.892025 67.585276,52.142331"
+     id="path915" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 12.615951,98.630675 32.039264,5.025765"
+     id="path917" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 43.084663,211.71043 35.180368,-93.2908"
+     id="path919" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 97.42577,67.533742 88.002454,110.88098"
+     id="path921" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 92.4,92.976687 46.48834,-34.238037 26.38528,-11.307975 19.16074,-1.256442 8.48098,9.737423 -54.027,35.180369"
+     id="path923" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 144.22822,12.564417 120.98405,108.99632 90.51534,190.03681"
+     id="path925" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 131.97791,128.15706 -6.59631,29.21227 2.19877,19.78895 10.05153,13.50675 21.98773,7.53865 28.26994,2.51288 19.78896,-2.19877 23.87239,-4.39754 11.9362,-5.02577 -21.98773,-39.89203"
+     id="path927" />
+      </svg>
 
-    <div>
-      Drag and Drop 展示區 (接收任何SVG)
-    </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        width="532"
+        height="512"
+        viewbox="-10 0 266 256"
+      >
+        <clippath id="cp2">
+          <path fill="currentColor"
+d="M94 8q6 5 10 10q4 4 0 9q-4 2 -6 35q5 -2 7 -4q2 -3 9 -3q6 1 11 2q2 1 1 2q0 2 -2 2q-13 0 -26 5v9q8 5 4 8l-3 3q-1 2 -2 3v11q5 5 11 9l6 3q6 3 9 7q1 6 -3 5q-12 -5 -24 -20q-5 89 7 113q1 3 -2 5q-2 1 -4 -2q-1 -1 -3 -4q-15 -19 -18 -27q-2 -2 -1 -3t4 1q1 4 8 10
+q2 2 3 2q2 2 3 1t1 -4q-2 -13 -3 -34q-1 -16 0 -64q-25 34 -64 47q-6 1 0 -2q46 -18 64 -60v-6q1 -6 1 -9q-13 4 -41 16q-11 6 -26 2q-3 0 -3 -1t3 -2q27 -4 67 -19q0 -14 2 -33q1 -16 -2 -21q-3 -4 2 -2zM164 13q1 2 4 4q7 6 9 7q3 3 -2 9q-20 31 -40 53q7 3 12 7q1 2 0 5
+q-4 5 -4 15q-2 13 -3 26q0 12 1 23q-1 12 5 17q16 -4 29 -7q13 -2 19 -2q3 0 2 4q-2 6 -8 3q-2 -1 -19 2q-4 1 -11 2q-6 1 -9 1q2 4 5 6q1 2 3 4q-1 4 -4 4q-8 -3 -12 -9q-2 -1 -3 -2q-3 -3 -4 -5q-2 0 1 -6q3 -2 2 -16v-21q1 -13 1 -19q0 -7 -1 -11v-9q1 -5 -12 -4
+q-3 2 -2 0q-1 -4 1 -6q1 -2 6 -2q17 -22 32 -52q8 -15 0 -20q-2 -2 2 -1zM183 70q7 -1 15 3q1 2 3 3q13 10 19 16q1 3 -2 4q-7 -2 -7 23q-2 29 -6 75q-3 11 -1 15q-1 1 -2 3q-6 3 -8 -3q-2 -2 -4 -5q-2 -2 -3 -4q-8 -7 -11 -16q-1 -1 1 0q6 6 14 10q7 4 9 -4q2 -15 3 -49
+q-1 -33 -3 -50q-3 -18 -17 -16q-15 3 -27 7q-9 5 -14 4q-3 -1 -1 -2q16 -10 42 -14zM172 120q2 -2 4 -2q8 -1 14 0q0 1 3 3q-4 5 -9 5q-11 3 -19 10q-5 3 -4 0q6 -7 2 -6q-11 4 -17 2q-2 0 0 -2q22 -7 26 -10z" />
+        </clippath>
+        <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 31.148466,84.809816 128.83681,56.225767"
+     id="path894" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 97.11166,14.134969 V 215.79387 L 76.694479,189.09448"
+     id="path896" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 96.48344,82.296933 65.700613,122.18896 26.122699,144.4908"
+     id="path898" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 97.42577,103.65644 27.01349,20.41718"
+     id="path900" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 171.24172,20.731288 124.43926,97.374233"
+     id="path902" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 130.40736,88.579141 10.67976,7.22454 -2.51289,82.296929 18.84663,20.73129"
+     id="path904" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 142.97178,84.809816 c 15.0773,-3.455215 49.31534,-12.564417 49.31534,-12.564417 l 14.76319,22.615951 -2.51289,65.33497 -5.65398,47.11656 -23.8724,-24.1865"
+     id="path906" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 147.68344,130.98405 194.8,120.30429"
+     id="path908" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 140.4589,180.6135 57.16809,-8.7951"
+     id="path910" />
+      </svg>
 
-    <script type="text/javascript">
-      // Your beautiful D3 code will go here
-    </script>
-  </html>
-  
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        width="532"
+        height="512"
+        viewbox="-10 0 266 256"
+      >
+        <clippath id="cp3">
+          <path fill="currentColor"
+d="M71 28q5 3 9 5q2 2 1 3q-1 4 -3 18q-1 14 -1 29q12 -7 21 -7q2 1 2 2q0 3 -2 3q-6 2 -21 10q-2 22 -1 59q16 -15 38 -41q6 -5 2 2q-36 48 -69 67q-2 1 -4 3q-1 1 -2 1q-1 2 -3 1q-1 0 -2 -2q-1 -1 -1 -3q-1 -1 1 -1q1 2 9 -3q16 -11 25 -20v-34q1 -20 1 -26q-11 7 -22 11
+q-7 5 -20 1q-4 0 0 -1q7 -1 15 -4q15 -6 27 -15q0 -5 1 -14q0 -9 1 -15q0 -13 -1 -16q0 -5 -2 -11q-1 -2 1 -2zM213 85q4 6 7 7q4 5 -1 7t-5 6q-17 82 -29 96q-7 7 -8 12q-3 5 -6 1q-4 -6 -13 -9q-10 -3 -17 -11q-5 -4 2 -2q12 8 26 12q5 0 9 -1q23 -28 28 -106
+q0 -18 -14 -25q-18 -3 -44 11q-7 4 -17 2q-3 1 0 -1q22 -11 44 -15q24 -5 38 16zM143 16q4 5 7 10q1 3 0 6q-22 55 -43 79q-3 3 -1 -2q17 -22 35 -72q3 -13 0 -21q0 -1 2 0zM177 132q-11 13 -26 26q-3 2 -2 2q-10 8 -14 13q-9 5 -13 -5q-2 -2 2 -1q2 3 10 -3q26 -18 41 -34
+q5 -4 2 2zM162 122q2 2 1 4q-2 2 -4 1h-10h-3q-1 -1 1 -3q6 0 -15 -8q-5 -1 1 -2q18 1 29 8z" />
+        </clippath>
+        <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 33.66135,106.48344 c 12.250306,-3.14111 68.79018,-31.725158 68.79018,-31.725158"
+     id="path0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 74.495706,33.295706 c 0,9.737423 -1.884663,127.528834 -1.884663,127.528834"
+     id="path1" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 36.802454,180.92761 c 6.910429,-2.19878 53.398776,-40.83436 53.398776,-40.83436 l 27.95583,-33.60981"
+     id="path2" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 146.7411,24.500613 102.13742,115.90675"
+     id="path3" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 133.86258,84.809816 44.60368,-15.077301 10.36564,-0.628221 12.87853,6.282209 9.42331,18.532515 -7.22454,46.802452 -16.01963,52.77055 -14.76319,17.9043"
+     id="path4" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 132.92025,114.96442 33.2957,11.93619"
+     id="path5" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 125.69571,172.76074 c 33.2957,-16.64786 55.91165,-48.37301 55.91165,-48.37301"
+     id="path6" />
+      </svg>
+    </div>
+  </body>
+</html>
